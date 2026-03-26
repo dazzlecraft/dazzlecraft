@@ -1,1563 +1,655 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dazzle Craft - Handcrafted Art Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Darshana Das | Dazzle Craft Atelier</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#fff0e5",
+                        "secondary-fixed": "#ffc791",
+                        "on-error": "#ffefee",
+                        "tertiary-dim": "#00528b",
+                        "secondary-dim": "#764400",
+                        "on-primary-fixed-variant": "#5f0022",
+                        "inverse-primary": "#ff4e7c",
+                        "on-tertiary-fixed-variant": "#003b67",
+                        "primary-fixed-dim": "#ff5580",
+                        "primary-container": "#ff7290",
+                        "on-error-container": "#570008",
+                        "tertiary-fixed-dim": "#4ca8ff",
+                        "secondary-fixed-dim": "#ffb467",
+                        "surface": "#fff4f6",
+                        "on-surface-variant": "#7e4d61",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#fb5151",
+                        "surface-container-highest": "#ffd1e1",
+                        "on-primary-container": "#4d001a",
+                        "error-dim": "#9f0519",
+                        "on-primary": "#ffeff0",
+                        "surface-dim": "#ffc4da",
+                        "surface-container-low": "#ffecf1",
+                        "surface-bright": "#fff4f6",
+                        "on-tertiary-container": "#003258",
+                        "on-background": "#4a2134",
+                        "inverse-surface": "#220213",
+                        "surface-variant": "#ffd1e1",
+                        "on-tertiary-fixed": "#001930",
+                        "tertiary": "#005e9f",
+                        "outline-variant": "#d89cb4",
+                        "surface-tint": "#b70049",
+                        "outline": "#9c677d",
+                        "surface-container": "#ffe0ea",
+                        "primary-fixed": "#ff7290",
+                        "primary": "#b70049",
+                        "error": "#b31b25",
+                        "on-secondary-container": "#6a3c00",
+                        "tertiary-fixed": "#70b5ff",
+                        "inverse-on-surface": "#c68da3",
+                        "tertiary-container": "#70b5ff",
+                        "on-secondary-fixed": "#4f2c00",
+                        "on-tertiary": "#edf3ff",
+                        "on-primary-fixed": "#000000",
+                        "on-surface": "#4a2134",
+                        "secondary-container": "#ffc791",
+                        "background": "#fff4f6",
+                        "surface-container-high": "#ffd8e5",
+                        "on-secondary-fixed-variant": "#774400",
+                        "primary-dim": "#a1003f",
+                        "secondary": "#874e00"
+                    },
+                    fontFamily: {
+                        "headline": ["Epilogue"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #764ba2;
-            --secondary: #667eea;
-            --accent: #f093fb;
-            --success: #4ade80;
-            --warning: #fbbf24;
-            --danger: #f87171;
-            --dark: #1e1b4b;
-            --light: #f3f4f6;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animated Header */
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            animation: moveBackground 20s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        header h1 {
-            font-family: font-family: 'Cinzel Decorative', cursive;
-            font-size: 3rem;
-            letter-spacing: 4px;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #764ba2;
-            font-weight: 600;
-            transition: all 0.3s;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        nav a:hover {
-            background: #764ba2;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Cart Icon in Nav */
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            font-size: 1.3rem;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-
-        .cart-icon:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ff6b6b;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: bold;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounce 0.5s;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: white;
-            margin: 3rem 0 2rem 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Filter Buttons */
-        .filter-buttons {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .filter-btn {
-            background: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            margin: 0.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #764ba2;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: #764ba2;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Gallery Grid */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        /* Art Item Card */
-        .art-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        .art-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .art-item.hidden {
-            display: none;
-        }
-
-        /* Product Badges */
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .badge-new {
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            color: white;
-        }
-
-        .badge-bestseller {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: white;
-        }
-
-        .badge-limited {
-            background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
-            color: white;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Image Container */
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            height: 350px;
-        }
-
-        .art-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .art-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(118, 75, 162, 0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-            gap: 0.5rem;
-        }
-
-        .art-item:hover .overlay {
-            opacity: 1;
-        }
-
-        .view-btn, .add-to-cart-btn {
-            background: white;
-            color: #764ba2;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transform: translateY(20px);
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .add-to-cart-btn {
-            background: #764ba2;
-            color: white;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .add-to-cart-btn:hover {
-            background: #5a3a8a;
-            transform: translateY(0) scale(1.05);
-        }
-
-        .view-btn:hover {
-            transform: translateY(0) scale(1.05);
-        }
-
-        .art-item:hover .view-btn,
-        .art-item:hover .add-to-cart-btn {
-            transform: translateY(0);
-        }
-
-        /* Art Info */
-        .art-info {
-            padding: 1.5rem;
-        }
-
-        .art-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .art-info p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .price-tag {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #764ba2;
-            margin: 0.5rem 0;
-        }
-
-        .category {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Cart Sidebar */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 30px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-sidebar.open {
-            right: 0;
-        }
-
-        .cart-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-header h2 {
-            font-family: 'Playfair Display', serif;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .close-cart:hover {
-            transform: rotate(90deg);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1rem;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            animation: slideInRight 0.3s ease-out;
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-details h4 {
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-        }
-
-        .cart-item-details p {
-            color: #764ba2;
-            font-weight: 600;
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .qty-btn {
-            background: white;
-            border: 1px solid #ddd;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .qty-btn:hover {
-            background: #764ba2;
-            color: white;
-            border-color: #764ba2;
-        }
-
-        .remove-item {
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-            transition: all 0.2s;
-        }
-
-        .remove-item:hover {
-            background: #ff5252;
-            transform: scale(1.05);
-        }
-
-        .cart-footer {
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-top: 2px solid #e5e7eb;
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .checkout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-        }
-
-        .checkout-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .empty-cart {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #666;
-        }
-
-        .empty-cart i {
-            font-size: 4rem;
-            color: #ddd;
-            margin-bottom: 1rem;
-        }
-
-        /* Cart Overlay */
-        .cart-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Quick View Modal */
-        .quick-view-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .quick-view-modal.active {
-            display: flex;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .quick-view-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-            animation: zoomIn 0.3s;
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .quick-view-image {
-            height: 100%;
-            min-height: 400px;
-        }
-
-        .quick-view-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px 0 0 20px;
-        }
-
-        .quick-view-details {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .quick-view-details h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .quick-view-details .price {
-            font-size: 1.8rem;
-            color: #764ba2;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-
-        .quick-view-details .description {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .quick-view-details .add-to-cart-btn {
-            transform: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
-
-        .close-quick-view {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            z-index: 10;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .close-quick-view:hover {
-            transform: rotate(90deg);
-            background: #ff6b6b;
-            color: white;
-        }
-
-        /* Checkout Modal */
-        .checkout-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1002;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .checkout-modal.active {
-            display: flex;
-        }
-
-        .checkout-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2.5rem;
-            position: relative;
-            animation: slideUp 0.4s;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .checkout-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: #764ba2;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .order-summary {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-        }
-
-        .order-summary h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            color: #666;
-        }
-
-        .summary-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #764ba2;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 2px solid #e5e7eb;
-        }
-
-        .submit-order-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .submit-order-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(74, 222, 128, 0.4);
-        }
-
-        /* Success Message Modal */
-        .success-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1003;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .success-modal.active {
-            display: flex;
-        }
-
-        .success-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 100%;
-            padding: 3rem;
-            text-align: center;
-            animation: popIn 0.5s;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .success-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            animation: scaleIn 0.5s ease-out;
-        }
-
-        @keyframes scaleIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
-        }
-
-        .success-icon i {
-            font-size: 3rem;
-            color: white;
-        }
-
-        .success-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: #22c55e;
-            margin-bottom: 1rem;
-        }
-
-        .success-content p {
-            color: #666;
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .success-content .contact-info {
-            background: #f0fdf4;
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #22c55e;
-        }
-
-        .close-success-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-
-        /* Toast Notifications */
-        .toast-container {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .toast {
-            background: white;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            min-width: 300px;
-            animation: slideInToast 0.4s ease-out;
-            border-left: 4px solid;
-        }
-
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .no-border { border: none !important; }
+        .animate-pulse-subtle { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.85; } }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff4f6; }
+        ::-webkit-scrollbar-thumb { background: #b70049; border-radius: 4px; }
+        
+        /* Toast animations */
         @keyframes slideInToast {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
-
-        .toast.success {
-            border-left-color: #4ade80;
+        @keyframes slideOutToast {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
-
-        .toast.error {
-            border-left-color: #f87171;
+        
+        /* Cart sidebar animation */
+        .cart-sidebar {
+            transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
-        .toast.info {
-            border-left-color: #60a5fa;
-        }
-
-        .toast-icon {
-            font-size: 1.5rem;
-        }
-
-        .toast.success .toast-icon { color: #4ade80; }
-        .toast.error .toast-icon { color: #f87171; }
-        .toast.info .toast-icon { color: #60a5fa; }
-
-        .toast-content h4 {
-            font-size: 1rem;
-            color: #2c3e50;
-            margin-bottom: 0.2rem;
-        }
-
-        .toast-content p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .toast-close {
-            margin-left: auto;
-            background: none;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: color 0.2s;
-        }
-
-        .toast-close:hover {
-            color: #333;
-        }
-
-        /* About Section */
-        .about {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .about-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .artist-photo {
-            position: relative;
-            width: 250px;
-            height: 250px;
-            margin: 0 auto;
-        }
-
-        .artist-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 2;
-            transition: transform 0.3s;
-        }
-
-        .artist-photo:hover img {
-            transform: scale(1.05);
-        }
-
-        .photo-ring {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 3px dashed #764ba2;
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .artist-photo::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            border: 2px solid rgba(118, 75, 162, 0.3);
-            border-radius: 50%;
-            animation: rotate 30s linear infinite reverse;
-            z-index: 0;
-        }
-
-        .about-content h2 {
-            font-family: 'Playfair Display', serif;
-            color: #764ba2;
-            margin-bottom: 0.5rem;
-            font-size: 2.5rem;
-        }
-
-        .about-content h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: transform 0.3s;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-3px);
-        }
-
-        .about-content p {
-            margin: 0.5rem 0;
-            color: #555;
-        }
-
-        .about-content i {
-            color: #764ba2;
-            width: 20px;
-            margin-right: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .social-links {
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .social-links a:hover {
-            color: #ffd700;
-            transform: translateY(-5px) rotate(10deg);
-        }
-
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: white;
-            color: #764ba2;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 99;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            background: #764ba2;
-            color: white;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .gallery { grid-template-columns: 1fr; }
-            .section-title { font-size: 1.8rem; }
-            .cart-sidebar { width: 100%; right: -100%; }
-            .quick-view-content { grid-template-columns: 1fr; }
-            .quick-view-image { min-height: 250px; }
-            .quick-view-image img { border-radius: 20px 20px 0 0; }
-            .about-container { grid-template-columns: 1fr; text-align: center; }
-            .artist-photo { width: 200px; height: 200px; margin-bottom: 2rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .toast-container { left: 20px; right: 20px; }
-            .toast { min-width: auto; }
-        }
+        
+        /* Modal animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 50% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
-<body>
+
+<body class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
 
     <!-- Toast Container -->
-    <div class="toast-container" id="toastContainer"></div>
+    <div class="fixed top-24 right-5 z-[2000] flex flex-col gap-4" id="toastContainer"></div>
 
     <!-- Cart Overlay -->
-    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+    <div class="fixed inset-0 bg-black/50 z-[999] opacity-0 invisible transition-all duration-300" id="cartOverlay" onclick="closeCart()"></div>
 
     <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2><i class="fas fa-shopping-bag"></i> Your Cart</h2>
-            <button class="close-cart" onclick="closeCart()"><i class="fas fa-times"></i></button>
+    <div class="cart-sidebar fixed top-0 right-[-400px] w-full max-w-[400px] h-screen bg-white shadow-[-5px_0_30px_rgba(0,0,0,0.3)] z-[1000] flex flex-col" id="cartSidebar">
+        <div class="bg-gradient-to-br from-primary to-primary-container text-on-primary p-6 flex justify-between items-center">
+            <h2 class="font-headline flex items-center gap-2 text-xl font-bold">
+                <span class="material-symbols-outlined">shopping_bag</span> Your Cart
+            </h2>
+            <button class="bg-transparent border-none text-on-primary text-2xl cursor-pointer hover:rotate-90 transition-transform" onclick="closeCart()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
-        <div class="cart-items" id="cartItems">
+        <div class="flex-1 overflow-y-auto p-4" id="cartItems">
             <!-- Cart items will be inserted here -->
         </div>
-        <div class="cart-footer">
-            <div class="cart-total">
+        <div class="p-6 bg-surface-container-low border-t-2 border-outline-variant/20">
+            <div class="flex justify-between text-xl font-bold text-on-background mb-4">
                 <span>Total:</span>
                 <span id="cartTotal">₹0</span>
             </div>
-            <button class="checkout-btn" onclick="openCheckout()" id="checkoutBtn" disabled>
-                Proceed to Checkout <i class="fas fa-arrow-right"></i>
+            <button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary border-none py-4 rounded-full text-lg font-bold cursor-pointer transition-all hover:translate-y-[-2px] hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" onclick="openCheckout()" id="checkoutBtn" disabled>
+                Proceed to Checkout <span class="material-symbols-outlined inline-block ml-2">arrow_forward</span>
             </button>
         </div>
     </div>
 
     <!-- Quick View Modal -->
-    <div class="quick-view-modal" id="quickViewModal">
-        <div class="quick-view-content">
-            <button class="close-quick-view" onclick="closeQuickView()"><i class="fas fa-times"></i></button>
-            <div class="quick-view-image">
-                <img src="" alt="" id="quickViewImg">
+    <div class="fixed inset-0 bg-black/90 z-[1001] hidden justify-center items-center p-4" id="quickViewModal">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto grid md:grid-cols-2 relative animate-[zoomIn_0.3s]">
+            <button class="absolute top-5 right-5 bg-white border-none w-10 h-10 rounded-full cursor-pointer z-10 shadow-lg hover:rotate-90 hover:bg-error hover:text-white transition-all" onclick="closeQuickView()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="h-64 md:h-full">
+                <img src="" alt="" id="quickViewImg" class="w-full h-full object-cover rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
             </div>
-            <div class="quick-view-details">
-                <h2 id="quickViewTitle"></h2>
-                <div class="price" id="quickViewPrice"></div>
-                <p class="description" id="quickViewDesc"></p>
-                <button class="add-to-cart-btn" id="quickViewAddBtn">
-                    <i class="fas fa-cart-plus"></i> Add to Cart
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+                <h2 id="quickViewTitle" class="font-headline text-3xl font-bold text-on-background mb-2"></h2>
+                <div id="quickViewPrice" class="text-2xl text-primary font-bold mb-4"></div>
+                <p id="quickViewDesc" class="text-on-surface-variant leading-relaxed mb-6"></p>
+                <button id="quickViewAddBtn" class="w-full py-4 rounded-full bg-primary text-on-primary font-bold text-lg shadow-lg hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Checkout Modal -->
-    <div class="checkout-modal" id="checkoutModal">
-        <div class="checkout-content">
-            <button class="close-quick-view" onclick="closeCheckout()" style="top: 15px; right: 15px;"><i class="fas fa-times"></i></button>
-            <h2><i class="fas fa-credit-card"></i> Checkout</h2>
+    <div class="fixed inset-0 bg-black/80 z-[1002] hidden justify-center items-center p-4" id="checkoutModal">
+        <div class="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-8 relative animate-[slideUp_0.4s]">
+            <button class="absolute top-4 right-4 bg-surface-container-high border-none w-10 h-10 rounded-full cursor-pointer hover:bg-error hover:text-white transition-all" onclick="closeCheckout()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <h2 class="font-headline text-2xl font-bold text-primary mb-6 text-center">
+                <span class="material-symbols-outlined inline-block mr-2">credit_card</span> Checkout
+            </h2>
             
-            <div class="order-summary" id="orderSummary">
-                <h3>Order Summary</h3>
-                <div id="summaryItems"></div>
-                <div class="summary-total">
+            <div class="bg-surface-container-low p-6 rounded-2xl mb-6">
+                <h3 class="font-bold text-on-background mb-4">Order Summary</h3>
+                <div id="summaryItems" class="space-y-2 mb-4"></div>
+                <div class="flex justify-between text-lg font-bold text-primary pt-4 border-t-2 border-outline-variant/20">
                     <span>Total Amount:</span>
                     <span id="summaryTotal">₹0</span>
                 </div>
             </div>
 
-            <form id="checkoutForm" onsubmit="submitOrder(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-user"></i> Full Name *</label>
-                        <input type="text" id="customerName" required placeholder="Enter your full name">
+            <form id="checkoutForm" onsubmit="submitOrder(event)" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-on-background">
+                            <span class="material-symbols-outlined text-sm mr-1">person</span> Full Name *
+                        </label>
+                        <input type="text" id="customerName" required placeholder="Enter your full name" 
+                            class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest">
                     </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-phone"></i> Phone Number *</label>
-                        <input type="tel" id="customerPhone" required placeholder="Enter 10-digit number" pattern="[0-9]{10}">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-on-background">
+                            <span class="material-symbols-outlined text-sm mr-1">phone</span> Phone Number *
+                        </label>
+                        <input type="tel" id="customerPhone" required placeholder="Enter 10-digit number" pattern="[0-9]{10}"
+                            class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest">
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label><i class="fas fa-envelope"></i> Email Address *</label>
-                    <input type="email" id="customerEmail" required placeholder="your@email.com">
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-on-background">
+                        <span class="material-symbols-outlined text-sm mr-1">email</span> Email Address *
+                    </label>
+                    <input type="email" id="customerEmail" required placeholder="your@email.com"
+                        class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest">
                 </div>
                 
-                <div class="form-group">
-                    <label><i class="fas fa-map-marker-alt"></i> Delivery Address *</label>
-                    <textarea id="customerAddress" rows="3" required placeholder="Enter your complete address including pincode"></textarea>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-on-background">
+                        <span class="material-symbols-outlined text-sm mr-1">location_on</span> Delivery Address *
+                    </label>
+                    <textarea id="customerAddress" rows="3" required placeholder="Enter your complete address including pincode"
+                        class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest resize-none"></textarea>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label><i class="fas fa-city"></i> City</label>
-                        <input type="text" id="customerCity" placeholder="City">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-on-background">
+                            <span class="material-symbols-outlined text-sm mr-1">location_city</span> City
+                        </label>
+                        <input type="text" id="customerCity" placeholder="City"
+                            class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest">
                     </div>
-                    <div class="form-group">
-                        <label><i class="fas fa-map-pin"></i> Pincode *</label>
-                        <input type="text" id="customerPincode" required placeholder="Pincode" pattern="[0-9]{6}">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-on-background">
+                            <span class="material-symbols-outlined text-sm mr-1">pin</span> Pincode *
+                        </label>
+                        <input type="text" id="customerPincode" required placeholder="Pincode" pattern="[0-9]{6}"
+                            class="w-full px-4 py-3 rounded-xl border-2 border-outline-variant/30 focus:border-primary focus:outline-none transition-colors bg-surface-container-lowest">
                     </div>
                 </div>
 
-                <button type="submit" class="submit-order-btn">
-                    <i class="fas fa-check-circle"></i> Place Order
+                <button type="submit" class="w-full py-4 rounded-full bg-gradient-to-br from-green-500 to-green-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all mt-6">
+                    <span class="material-symbols-outlined inline-block mr-2">check_circle</span> Place Order
                 </button>
             </form>
         </div>
     </div>
 
     <!-- Success Modal -->
-    <div class="success-modal" id="successModal">
-        <div class="success-content">
-            <div class="success-icon">
-                <i class="fas fa-check"></i>
+    <div class="fixed inset-0 bg-black/80 z-[1003] hidden justify-center items-center p-4" id="successModal">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center animate-[popIn_0.5s]">
+            <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-[scaleIn_0.5s]">
+                <span class="material-symbols-outlined text-5xl text-white">check</span>
             </div>
-            <h2>Order Placed Successfully!</h2>
-            <p>Thank you for your order. We have received your details.</p>
-            <div class="contact-info">
-                <p><strong>Payment link will be sent to:</strong></p>
-                <p id="successEmail" style="margin-top: 0.5rem; color: #764ba2; font-weight: 600;"></p>
-                <p id="successPhone" style="color: #764ba2; font-weight: 600;"></p>
+            <h2 class="font-headline text-2xl font-bold text-green-600 mb-4">Order Placed Successfully!</h2>
+            <p class="text-on-surface-variant mb-2">Thank you for your order. We have received your details.</p>
+            <div class="bg-green-50 p-4 rounded-xl my-6 text-left border-l-4 border-green-500">
+                <p class="text-sm text-on-surface-variant mb-1"><strong>Payment link will be sent to:</strong></p>
+                <p id="successEmail" class="text-primary font-semibold"></p>
+                <p id="successPhone" class="text-primary font-semibold"></p>
             </div>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">Please complete the payment to confirm your order.</p>
-            <button class="close-success-btn" onclick="closeSuccessModal()">
-                <i class="fas fa-shopping-bag"></i> Continue Shopping
+            <p class="text-sm text-on-surface-variant mb-6">Please complete the payment to confirm your order.</p>
+            <button onclick="closeSuccessModal()" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all">
+                <span class="material-symbols-outlined inline-block mr-2">shopping_bag</span> Continue Shopping
             </button>
         </div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <h1>✨ Dazzle Craft ✨</h1>
-        <p>Handcrafted Bookmarks, Illustrations & Bottle Arts</p>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-            <li>
-                <div class="cart-icon" onclick="openCart()">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
-                </div>
-            </li>
-        </ul>
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm shadow-purple-500/5 tonal-transition">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <a href="#" class="font-['Cinzel_Decorative'] text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Darshana Das
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-['Epilogue'] tracking-tight">
+                <a href="#home" class="text-pink-700 font-bold border-b-2 border-pink-600 transition-all">Home</a>
+                <a href="#gallery" class="text-zinc-600 hover:text-pink-600 transition-colors">Gallery</a>
+                <a href="#about" class="text-zinc-600 hover:text-pink-600 transition-colors">About</a>
+                <a href="#contact" class="text-zinc-600 hover:text-pink-600 transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="openCart()" class="relative p-2 rounded-full bg-surface-container-high text-pink-700 hover:opacity-80 transition-all scale-95 active:scale-90">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span id="cartCount" class="absolute -top-1 -right-1 bg-error text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+                <button class="md:hidden material-symbols-outlined text-pink-700" onclick="toggleMobileMenu()">menu</button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-outline-variant/20">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-pink-700 font-bold">Home</a>
+                <a href="#gallery" class="block text-zinc-600">Gallery</a>
+                <a href="#about" class="block text-zinc-600">About</a>
+                <a href="#contact" class="block text-zinc-600">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container">
-        
+    <main class="pt-24 pb-32">
+        <!-- Hero Section -->
+        <section id="home" class="relative px-6 max-w-7xl mx-auto mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 z-10">
+                    <h1 class="font-['Cinzel_Decorative'] text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight text-on-background">
+                        ✨ Dazzle Craft ✨
+                    </h1>
+                    <p class="font-headline text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
+                        Handcrafted Bookmarks, Illustrations & Bottle Arts. Where every stroke tells a story.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#gallery" class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold shadow-lg hover:bg-primary-dim transition-all scale-100 hover:scale-105 active:scale-95 inline-block">
+                            Explore Gallery
+                        </a>
+                        <a href="#about" class="border border-outline-variant/30 text-primary px-8 py-4 rounded-full font-bold hover:bg-surface-container-low transition-all inline-block">
+                            Our Story
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="images/art work 1.jpeg" alt="Hand-painted art" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-secondary-container rounded-2xl -z-10 animate-pulse-subtle"></div>
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary-container rounded-full -z-10 blur-2xl opacity-50"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Gallery Section -->
-        <h2 class="section-title" id="gallery">🎨 My Artworks</h2>
-        
-        <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterGallery('all')">All</button>
-            <button class="filter-btn" onclick="filterGallery('bookmarks')">Bookmarks</button>
-            <button class="filter-btn" onclick="filterGallery('illustrations')">Illustrations</button>
-            <button class="filter-btn" onclick="filterGallery('bottleart')">Bottle Art</button>
-        </div>
-
-        <div class="gallery" id="gallery-grid">
-            
-            <!-- Artwork 1 -->
-            <div class="art-item" data-category="bookmarks">
-                <div class="image-container">
-                    <img src="images/art work 1.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(1)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(1)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
+        <section id="gallery" class="px-6 max-w-7xl mx-auto mb-32">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-headline text-3xl font-bold mb-2">Featured Artworks</h2>
+                    <p class="text-on-surface-variant">Hand-curated pieces from the Pondicherry studio</p>
                 </div>
-                <div class="art-info">
-                    <h3>🌸 Floral Bookmark</h3>
-                    <p>Hand-painted floral bookmark </p>
-                    <div class="price-tag">₹120</div>
-                    <span class="category">Bookmarks</span>
-                </div>
+                <button onclick="filterGallery('all')" class="text-primary font-bold hover:underline hidden md:block">View all collections →</button>
             </div>
 
-            <!-- Artwork 2 -->
-            <div class="art-item" data-category="illustrations">
-                <div class="image-container">
-                    <img src="images/art work2.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(2)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(2)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-                <div class="art-info">
-                    <h3>🎭 Mini art Series</h3>
-                    <p> Hand crafted mini art.</p>
-                    <div class="price-tag">₹100</div>
-                    <span class="category">illustrations</span>
-                </div>
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-3 mb-12">
+                <button onclick="filterGallery('all')" class="filter-btn active px-6 py-3 rounded-full bg-primary text-on-primary font-semibold transition-all shadow-md" data-category="all">All Works</button>
+                <button onclick="filterGallery('bookmarks')" class="filter-btn px-6 py-3 rounded-full bg-secondary-container text-on-secondary-container font-medium hover:bg-primary-container/20 transition-all" data-category="bookmarks">Bookmarks</button>
+                <button onclick="filterGallery('illustrations')" class="filter-btn px-6 py-3 rounded-full bg-secondary-container text-on-secondary-container font-medium hover:bg-primary-container/20 transition-all" data-category="illustrations">Illustrations</button>
+                <button onclick="filterGallery('bottleart')" class="filter-btn px-6 py-3 rounded-full bg-secondary-container text-on-secondary-container font-medium hover:bg-primary-container/20 transition-all" data-category="bottleart">Bottle Art</button>
             </div>
 
-            <!-- Artwork 3 -->
-            <div class="art-item" data-category="illustrations">
-                <div class="image-container">
-                    <img src="images/art work 3.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(3)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(3)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                
+                <!-- Artwork 1: Floral Bookmark -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="bookmarks">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work 1.jpeg" alt="🌸 Floral Bookmark" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(1)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(1)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🌸 Floral Bookmark</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand-painted floral bookmark with intricate details.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹120</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Bookmarks</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3>🌿 Floral mini art</h3>
-                    <p>Hand crafted mini art.</p>
-                    <div class="price-tag">₹100</div>
-                    <span class="category">Illustrations</span>
-                </div>
-            </div>
 
-            <!-- Artwork 4 -->
-            <div class="art-item" data-category="bottleart">
-                <div class="image-container">
-                    <img src="images/art work4.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(4)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(4)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                <!-- Artwork 2: Mini Art Series -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="illustrations">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work2.jpeg" alt="🎭 Mini art Series" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(2)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(2)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🎭 Mini Art Series</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand crafted mini art pieces perfect for gifting.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹100</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Illustrations</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3>🍶 Bottle art </h3>
-                    <p>Hand painted bottle art.</p>
-                    <div class="price-tag">₹400</div>
-                    <span class="category">Bottle Art</span>
-                </div>
-            </div>
 
-            <!-- Artwork 5 -->
-            <div class="art-item" data-category="bottleart">
-                <div class="image-container">
-                    <img src="images/art work 5.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(5)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(5)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                <!-- Artwork 3: Floral Mini Art -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="illustrations">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work 3.jpeg" alt="🌿 Floral mini art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(3)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(3)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🌿 Floral Mini Art</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand crafted mini art with botanical themes.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹100</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Illustrations</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3> Bottle Art</h3>
-                    <p>Hand painted bottle art.</p>
-                    <div class="price-tag">₹400</div>
-                    <span class="category">Bottle Art</span>
-                </div>
-            </div>
 
-            <!-- Artwork 6 -->
-            <div class="art-item" data-category="illustrations">
-                <div class="image-container">
-                    <img src="images/art work 6.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(6)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(6)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                <!-- Artwork 4: Bottle Art -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="bottleart">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work4.jpeg" alt="🍶 Bottle art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(4)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(4)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🍶 Bottle Art</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand painted bottle art with unique designs.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹400</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Bottle Art</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3>✨ Mini art</h3>
-                    <p> hand painted cute art peice.</p>
-                    <div class="price-tag">₹100</div>
-                    <span class="category">illustartions</span>
-                </div>
-            </div>
 
-            <!-- Artwork 7 -->
-            <div class="art-item" data-category="illustrations">
-                <div class="image-container">
-                    <img src="images/art work 7.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(7)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(7)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                <!-- Artwork 5: Bottle Art 2 -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="bottleart">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work 5.jpeg" alt="Bottle Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(5)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(5)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🕉️ Spiritual Bottle Art</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand painted bottle art with spiritual motifs.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹400</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Bottle Art</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3>👤 mini art </h3>
-                    <p>hand crafted mini art</p>
-                    <div class="price-tag">₹100</div>
-                    <span class="category">Illustrations</span>
-                </div>
-            </div>
 
-            <!-- Artwork 8 -->
-            <div class="art-item" data-category="bottleart">
-                <span class="product-badge badge-new">New Arrival</span>
-                <div class="image-container">
-                    <img src="images/art work 8.jpeg">
-                    <div class="overlay">
-                        <button class="view-btn" onclick="openQuickView(8)">
-                            <i class="fas fa-eye"></i> Quick View
-                        </button>
-                        <button class="add-to-cart-btn" onclick="addToCart(8)">
-                            <i class="fas fa-cart-plus"></i> Add to Cart
-                        </button>
+                <!-- Artwork 6: Mini Art -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="illustrations">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work 6.jpeg" alt="✨ Mini art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(6)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(6)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">✨ Mini Art</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand painted cute art piece for your space.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹100</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-xs font-semibold">Illustrations</span>
+                        </div>
                     </div>
                 </div>
-                <div class="art-info">
-                    <h3>🌺 Floral Bottle Set</h3>
-                    <p> bottle with hand-painted floral designs.</p>
-                    <div class="price-tag">₹400 </div>
-                    <span class="category">Bottle Art</span>
-                </div>
-            </div>
 
-        </div>
+                <!-- Artwork 7: Portrait Mini Art -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="illustrations">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <img src="images/art work 7.jpeg" alt="👤 Mini art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(7)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(7)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">👤 Portrait Mini Art</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Hand crafted portrait mini art.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹100</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Illustrations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 8: Floral Bottle Set -->
+                <div class="art-item group bg-surface-container-lowest p-3 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500" data-category="bottleart">
+                    <div class="aspect-square rounded-xl overflow-hidden mb-6 bg-surface-container-low relative">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary tracking-widest uppercase z-10">New Arrival</span>
+                        <img src="images/art work 8.jpeg" alt="🌺 Floral Bottle Set" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 gap-2">
+                            <button onclick="openQuickView(8)" class="w-full py-3 rounded-full bg-white/90 text-primary font-bold hover:bg-white transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">visibility</span> Quick View
+                            </button>
+                            <button onclick="addToCart(8)" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold hover:bg-primary-dim transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">shopping_cart</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-2 pb-4">
+                        <h3 class="font-headline text-xl font-bold text-on-background mb-1">🌺 Floral Bottle Set</h3>
+                        <p class="text-on-surface-variant text-sm mb-4">Bottle with hand-painted floral designs.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-black text-lg">₹400</span>
+                            <span class="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-primary-container text-white text-xs font-semibold">Bottle Art</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- About Section -->
-        <div class="about" id="about">
-            <div class="about-container">
-                <div class="artist-photo">
-                    <img src="images/your-photo.jpg.jpeg">
-                    <div class="photo-ring"></div>
-                </div>
-                <div class="about-content">
-                    <h2>About the Artist</h2>
-                    <h3>I'm Darshana Das</h3>
-                    <p>Welcome to my creative space! I'm passionate about creating unique handcrafted bookmarks and illustrations that bring joy to everyday reading. Each piece is made with love and attention to detail.</p>
-                    <br>
-                    <div class="skills">
-                        <span class="skill-tag">🎨 Watercolor</span>
-                        <span class="skill-tag">✒️ Ink</span>
-                        <span class="skill-tag">🍶 Bottle Art</span>
-                        <span class="skill-tag">🖌️ Mixed Media</span>
+        <section id="about" class="bg-surface-container-low py-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="relative order-2 md:order-1">
+                        <div class="aspect-square rounded-[2rem] overflow-hidden shadow-2xl z-10 relative">
+                            <img src="images/your-photo.jpg.jpeg" alt="Darshana Das" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-full h-full bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-[2rem] -z-10"></div>
+                        <div class="absolute -top-5 -left-5 w-20 h-20 border-2 border-dashed border-primary/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
                     </div>
-                    <br>
-                    <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Originally from Assam now at Pondicherry, India</p>
-                    <p><i class="fas fa-shipping-fast"></i> <strong>Shipping:</strong> All India</p>
-                    <p><i class="fas fa-phone"></i> <strong>Contact:</strong> dazzlecraft8@gmail.com</p>
+                    <div class="order-1 md:order-2">
+                        <span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">The Artist</span>
+                        <h2 class="font-['Cinzel_Decorative'] text-4xl md:text-5xl font-bold mb-8 text-on-background leading-tight">Meet Darshana Das</h2>
+                        <div class="space-y-6 text-on-surface-variant text-lg leading-relaxed">
+                            <p>
+                                Welcome to my creative space! I'm passionate about creating unique handcrafted bookmarks and illustrations that bring joy to everyday reading. Each piece is made with love and attention to detail.
+                            </p>
+                            <p>
+                                Originally from Assam, now in Pondicherry, India. Every piece I create is a reflection of the journey between the lush greenery of the Northeast and the serene coastal vibes of the South.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 mt-8">
+                            <span class="bg-gradient-to-r from-primary to-primary-container text-white px-4 py-2 rounded-full text-sm font-medium">🎨 Watercolor</span>
+                            <span class="bg-gradient-to-r from-primary to-primary-container text-white px-4 py-2 rounded-full text-sm font-medium">✒️ Ink</span>
+                            <span class="bg-gradient-to-r from-primary to-primary-container text-white px-4 py-2 rounded-full text-sm font-medium">🍶 Bottle Art</span>
+                            <span class="bg-gradient-to-r from-primary to-primary-container text-white px-4 py-2 rounded-full text-sm font-medium">🖌️ Mixed Media</span>
+                        </div>
+                        <div class="mt-8 space-y-3">
+                            <p class="flex items-center text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary mr-3">location_on</span>
+                                <strong>Location:</strong> Originally from Assam, now at Pondicherry, India
+                            </p>
+                            <p class="flex items-center text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary mr-3">local_shipping</span>
+                                <strong>Shipping:</strong> All India
+                            </p>
+                            <p class="flex items-center text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary mr-3">email</span>
+                                <strong>Contact:</strong> dazzlecraft8@gmail.com
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="social-links">
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a>
-            <a href="#" title="Etsy"><i class="fas fa-store"></i></a>
-            <a href="mailto:dazzlecraft8@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <footer id="contact" class="w-full mt-20 bg-pink-50 tonal-transition">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 py-16 max-w-7xl mx-auto">
+            <div>
+                <div class="font-['Cinzel_Decorative'] text-lg text-indigo-700 mb-6">Darshana Das</div>
+                <p class="font-body text-sm text-zinc-600 mb-6 leading-relaxed">
+                    Celebrating the beauty of handcrafted imperfections through bespoke art and stationery.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="material-symbols-outlined text-pink-700 cursor-pointer hover:opacity-80">alternate_email</a>
+                    <a href="#" class="material-symbols-outlined text-pink-700 cursor-pointer hover:opacity-80">share</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-on-background mb-6">Collections</h4>
+                <ul class="space-y-3 font-body text-sm">
+                    <li><a href="#" onclick="filterGallery('bookmarks')" class="text-zinc-600 hover:text-indigo-600 transition-colors">Floral Bookmarks</a></li>
+                    <li><a href="#" onclick="filterGallery('illustrations')" class="text-zinc-600 hover:text-indigo-600 transition-colors">Mini Art</a></li>
+                    <li><a href="#" onclick="filterGallery('bottleart')" class="text-zinc-600 hover:text-indigo-600 transition-colors">Bottle Art</a></li>
+                    <li><a href="#" class="text-zinc-600 hover:text-indigo-600 transition-colors">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-on-background mb-6">Stay Inspired</h4>
+                <div class="flex gap-2 mb-4">
+                    <input type="email" placeholder="Email address" class="bg-surface-container-low border-none rounded-lg flex-grow text-sm px-4 py-2 focus:ring-2 focus:ring-primary focus:outline-none">
+                    <button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity">Join</button>
+                </div>
+                <p class="text-[10px] text-zinc-500">© 2025 Darshana Das. Handcrafted from Pondicherry.</p>
+                <p class="text-[10px] text-zinc-500 mt-2">Contact: dazzlecraft8@gmail.com</p>
+            </div>
         </div>
-        <p>&copy; 2025 Dazzle Craft. All artwork handmade with love.</p>
-        <p>Contact: dazzlecraft8@gmail.com</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 w-full rounded-t-3xl z-50 bg-white/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-around items-center pb-6 pt-3 px-4">
+            <a href="#home" class="flex flex-col items-center justify-center text-pink-800 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl px-5 py-2 animate-pulse-subtle scale-105">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                <span class="text-[10px] font-medium font-['Manrope']">Home</span>
+            </a>
+            <a href="#gallery" class="flex flex-col items-center justify-center text-zinc-500 px-5 py-2 hover:bg-pink-50 rounded-2xl transition-colors">
+                <span class="material-symbols-outlined">palette</span>
+                <span class="text-[10px] font-medium font-['Manrope']">Gallery</span>
+            </a>
+            <button onclick="openCart()" class="flex flex-col items-center justify-center text-zinc-500 px-5 py-2 hover:bg-pink-50 rounded-2xl transition-colors relative">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span class="text-[10px] font-medium font-['Manrope']">Cart</span>
+                <span id="mobileCartCount" class="absolute top-1 right-3 bg-error text-white text-[8px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </button>
+            <a href="#about" class="flex flex-col items-center justify-center text-zinc-500 px-5 py-2 hover:bg-pink-50 rounded-2xl transition-colors">
+                <span class="material-symbols-outlined">person</span>
+                <span class="text-[10px] font-medium font-['Manrope']">Profile</span>
+            </a>
+        </div>
+    </nav>
 
     <script>
         // Product Data
         const products = {
-            1: { id: 1, name: "🌸 Floral Bookmark", price: 120, image: "images/art work 1.jpeg" },
-            2: { id: 2, name: "🎭 Mini arts", price: 100, image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop", category: "Bookmarks", description: "Bold ink and watercolor blend with metallic highlights. One-of-a-kind design that stands out in your reading collection." },
-            3: { id: 3, name: "🌿 Botanical Illustration", price: 100, image: "image/art work 3" },
-            4: { id: 4, name: "🍶 Bottle art", price: 400, image: "image/art work4" },
-            5: { id: 5, name: "🕉️ Bottle Art", price: 400, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400&h=400&fit=crop", category: "Bottle Art", description: "Intricate mandala design on glass bottle with metallic permanent markers. Perfect for home or office decor." },
-            6: { id: 6, name: "✨ Mini art", price: 249, image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop", category: "Bookmarks", description: "Elegant typography bookmark with hand-lettered inspirational quote. Laminated for protection." },
-            7: { id: 7, name: "👤 book mark", price: 120, image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400&h=400&fit=crop", category: "Illustrations", description: "Mixed media portrait combining pencil sketch with watercolor washes on A4 size archival paper." },
-            8: { id: 8, name: "🌺 book mark", price: 120, image: "https://images.unsplash.com/photo-1581783342308-f792ca438919?w=400&h=400&fit=crop", category: "Bottle Art", description: "Set of 3 decorated bottles with hand-painted floral designs. Perfect gift for housewarming." }
+            1: { id: 1, name: "🌸 Floral Bookmark", price: 120, image: "images/art work 1.jpeg", category: "Bookmarks", description: "Hand-painted floral bookmark with intricate details. Features pressed petals and fine-line ink on premium vellum. Perfect for book lovers." },
+            2: { id: 2, name: "🎭 Mini Art Series", price: 100, image: "images/art work2.jpeg", category: "Illustrations", description: "Hand crafted mini art pieces perfect for gifting. Small frames, big emotions. Perfect for desk decor." },
+            3: { id: 3, name: "🌿 Floral Mini Art", price: 100, image: "images/art work 3.jpeg", category: "Illustrations", description: "Hand crafted mini art with botanical themes. Delicate botanical studies on premium paper." },
+            4: { id: 4, name: "🍶 Bottle Art", price: 400, image: "images/art work4.jpeg", category: "Bottle Art", description: "Hand painted bottle art with unique designs. Upcycled glass featuring intricate patterns." },
+            5: { id: 5, name: "🕉️ Spiritual Bottle Art", price: 400, image: "images/art work 5.jpeg", category: "Bottle Art", description: "Hand painted bottle art with spiritual motifs. Intricate mandala design on glass bottle with metallic permanent markers." },
+            6: { id: 6, name: "✨ Mini Art", price: 100, image: "images/art work 6.jpeg", category: "Illustrations", description: "Hand painted cute art piece for your space. Mixed media portrait combining pencil sketch with watercolor washes." },
+            7: { id: 7, name: "👤 Portrait Mini Art", price: 100, image: "images/art work 7.jpeg", category: "Illustrations", description: "Hand crafted portrait mini art. Character portrait illustration with ink and watercolor blend." },
+            8: { id: 8, name: "🌺 Floral Bottle Set", price: 400, image: "images/art work 8.jpeg", category: "Bottle Art", description: "Bottle with hand-painted floral designs. Set of decorated bottles with hand-painted floral designs. Perfect gift for housewarming." }
         };
 
         // Cart State
@@ -1569,38 +661,49 @@
             setupScrollEffects();
         });
 
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
         // Toast Notification System
         function showToast(message, type = 'success', duration = 3000) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
             
             const icons = {
-                success: 'fa-check-circle',
-                error: 'fa-exclamation-circle',
-                info: 'fa-info-circle'
+                success: 'check_circle',
+                error: 'error',
+                info: 'info'
             };
             
             const colors = {
-                success: '#4ade80',
-                error: '#f87171',
-                info: '#60a5fa'
+                success: 'border-l-green-500',
+                error: 'border-l-red-500',
+                info: 'border-l-blue-500'
             };
             
+            const iconColors = {
+                success: 'text-green-500',
+                error: 'text-red-500',
+                info: 'text-blue-500'
+            };
+            
+            toast.className = `bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 min-w-[300px] animate-[slideInToast_0.4s_ease-out] border-l-4 ${colors[type]}`;
             toast.innerHTML = `
-                <i class="fas ${icons[type]} toast-icon"></i>
-                <div class="toast-content">
-                    <h4>${type.charAt(0).toUpperCase() + type.slice(1)}</h4>
-                    <p>${message}</p>
+                <span class="material-symbols-outlined ${iconColors[type]} text-2xl">${icons[type]}</span>
+                <div class="flex-1">
+                    <h4 class="font-bold text-on-background text-sm capitalize">${type}</h4>
+                    <p class="text-on-surface-variant text-sm">${message}</p>
                 </div>
-                <button class="toast-close" onclick="this.parentElement.remove()"><i class="fas fa-times"></i></button>
+                <button onclick="this.parentElement.remove()" class="material-symbols-outlined text-zinc-400 hover:text-zinc-600">close</button>
             `;
             
             container.appendChild(toast);
             
-            // Auto remove
             setTimeout(() => {
-                toast.style.animation = 'slideInToast 0.4s ease-out reverse';
+                toast.style.animation = 'slideOutToast 0.4s ease-out forwards';
                 setTimeout(() => toast.remove(), 400);
             }, duration);
         }
@@ -1621,9 +724,9 @@
             updateCartUI();
             
             // Animate cart icon
-            const cartIcon = document.querySelector('.cart-icon');
-            cartIcon.style.transform = 'scale(1.2)';
-            setTimeout(() => cartIcon.style.transform = 'scale(1)', 200);
+            const cartBtn = document.querySelector('button[onclick="openCart()"]');
+            cartBtn.style.transform = 'scale(1.2)';
+            setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
         }
 
         // Remove from Cart
@@ -1656,6 +759,7 @@
         function updateCartUI() {
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
+            const mobileCartCount = document.getElementById('mobileCartCount');
             const cartTotal = document.getElementById('cartTotal');
             const checkoutBtn = document.getElementById('checkoutBtn');
             
@@ -1663,39 +767,46 @@
             const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
             const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
-            // Update count badge
+            // Update count badges
             if (totalItems > 0) {
                 cartCount.textContent = totalItems;
-                cartCount.style.display = 'flex';
+                cartCount.classList.remove('hidden');
+                mobileCartCount.textContent = totalItems;
+                mobileCartCount.classList.remove('hidden');
                 checkoutBtn.disabled = false;
             } else {
-                cartCount.style.display = 'none';
+                cartCount.classList.add('hidden');
+                mobileCartCount.classList.add('hidden');
                 checkoutBtn.disabled = true;
             }
             
             // Update cart items
             if (items.length === 0) {
                 cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <p>Your cart is empty</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Add some beautiful artworks!</p>
+                    <div class="text-center py-12 text-on-surface-variant">
+                        <span class="material-symbols-outlined text-6xl text-outline-variant mb-4 block">shopping_bag</span>
+                        <p class="font-medium">Your cart is empty</p>
+                        <p class="text-sm mt-2">Add some beautiful artworks!</p>
                     </div>
                 `;
             } else {
                 cartItems.innerHTML = items.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}">
-                        <div class="cart-item-details">
-                            <h4>${item.name}</h4>
-                            <p>₹${item.price}</p>
-                            <div class="quantity-controls">
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)"><i class="fas fa-minus"></i></button>
-                                <span>${item.quantity}</span>
-                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)"><i class="fas fa-plus"></i></button>
+                    <div class="flex gap-4 p-4 bg-surface-container-low rounded-xl mb-4 animate-[slideInToast_0.3s_ease-out]">
+                        <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-on-background text-sm mb-1">${item.name}</h4>
+                            <p class="text-primary font-bold">₹${item.price}</p>
+                            <div class="flex items-center gap-3 mt-2">
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-7 h-7 rounded-full bg-white border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all">
+                                    <span class="material-symbols-outlined text-sm">remove</span>
+                                </button>
+                                <span class="font-medium text-sm">${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-7 h-7 rounded-full bg-white border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
                             </div>
-                            <button class="remove-item" onclick="removeFromCart(${item.id})">
-                                <i class="fas fa-trash"></i> Remove
+                            <button onclick="removeFromCart(${item.id})" class="mt-2 text-xs text-error hover:underline flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">delete</span> Remove
                             </button>
                         </div>
                     </div>
@@ -1707,14 +818,18 @@
 
         // Cart Sidebar Toggle
         function openCart() {
-            document.getElementById('cartSidebar').classList.add('open');
-            document.getElementById('cartOverlay').classList.add('active');
+            document.getElementById('cartSidebar').classList.add('right-0');
+            document.getElementById('cartSidebar').classList.remove('right-[-400px]');
+            document.getElementById('cartOverlay').classList.remove('opacity-0', 'invisible');
+            document.getElementById('cartOverlay').classList.add('opacity-100', 'visible');
             document.body.style.overflow = 'hidden';
         }
 
         function closeCart() {
-            document.getElementById('cartSidebar').classList.remove('open');
-            document.getElementById('cartOverlay').classList.remove('active');
+            document.getElementById('cartSidebar').classList.remove('right-0');
+            document.getElementById('cartSidebar').classList.add('right-[-400px]');
+            document.getElementById('cartOverlay').classList.add('opacity-0', 'invisible');
+            document.getElementById('cartOverlay').classList.remove('opacity-100', 'visible');
             document.body.style.overflow = 'auto';
         }
 
@@ -1730,12 +845,14 @@
                 closeQuickView();
             };
             
-            document.getElementById('quickViewModal').classList.add('active');
+            document.getElementById('quickViewModal').classList.remove('hidden');
+            document.getElementById('quickViewModal').classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
 
         function closeQuickView() {
-            document.getElementById('quickViewModal').classList.remove('active');
+            document.getElementById('quickViewModal').classList.add('hidden');
+            document.getElementById('quickViewModal').classList.remove('flex');
             document.body.style.overflow = 'auto';
         }
 
@@ -1747,18 +864,20 @@
             const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
             summaryItems.innerHTML = items.map(item => `
-                <div class="summary-item">
-                    <span>${item.name} x${item.quantity}</span>
-                    <span>₹${(item.price * item.quantity).toLocaleString()}</span>
+                <div class="flex justify-between text-sm">
+                    <span class="text-on-surface-variant">${item.name} x${item.quantity}</span>
+                    <span class="font-medium">₹${(item.price * item.quantity).toLocaleString()}</span>
                 </div>
             `).join('');
             
             document.getElementById('summaryTotal').textContent = `₹${totalPrice.toLocaleString()}`;
-            document.getElementById('checkoutModal').classList.add('active');
+            document.getElementById('checkoutModal').classList.remove('hidden');
+            document.getElementById('checkoutModal').classList.add('flex');
         }
 
         function closeCheckout() {
-            document.getElementById('checkoutModal').classList.remove('active');
+            document.getElementById('checkoutModal').classList.add('hidden');
+            document.getElementById('checkoutModal').classList.remove('flex');
             document.body.style.overflow = 'auto';
         }
 
@@ -1770,24 +889,24 @@
             const phone = document.getElementById('customerPhone').value;
             const email = document.getElementById('customerEmail').value;
             
-            // Show success modal with contact info
-            document.getElementById('successEmail').textContent = `📧 Email: ${email}`;
-            document.getElementById('successPhone').textContent = `📱 Phone: ${phone}`;
+            document.getElementById('successEmail').textContent = `📧 ${email}`;
+            document.getElementById('successPhone').textContent = `📱 ${phone}`;
             
-            document.getElementById('checkoutModal').classList.remove('active');
-            document.getElementById('successModal').classList.add('active');
+            document.getElementById('checkoutModal').classList.add('hidden');
+            document.getElementById('checkoutModal').classList.remove('flex');
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
             
-            // Clear cart
             cart = {};
             saveCart();
             updateCartUI();
             
-            // Reset form
             document.getElementById('checkoutForm').reset();
         }
 
         function closeSuccessModal() {
-            document.getElementById('successModal').classList.remove('active');
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
             document.body.style.overflow = 'auto';
         }
 
@@ -1797,17 +916,18 @@
             const buttons = document.querySelectorAll('.filter-btn');
             
             buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.textContent.toLowerCase().includes(category) || 
-                   (category === 'all' && btn.textContent === 'All')) {
-                    btn.classList.add('active');
+                btn.classList.remove('bg-primary', 'text-on-primary');
+                btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+                if(btn.dataset.category === category || (category === 'all' && btn.dataset.category === 'all')) {
+                    btn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+                    btn.classList.add('bg-primary', 'text-on-primary');
                 }
             });
             
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
                     item.classList.remove('hidden');
-                    item.style.animation = 'fadeInUp 0.5s ease-out';
+                    item.style.animation = 'fadeIn 0.5s ease-out';
                 } else {
                     item.classList.add('hidden');
                 }
@@ -1816,16 +936,6 @@
 
         // Scroll Effects
         function setupScrollEffects() {
-            // Scroll to top button
-            window.addEventListener('scroll', function() {
-                const scrollTop = document.getElementById('scrollTop');
-                if (window.pageYOffset > 300) {
-                    scrollTop.classList.add('visible');
-                } else {
-                    scrollTop.classList.remove('visible');
-                }
-            });
-
             // Smooth scroll for navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1833,6 +943,8 @@
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Close mobile menu if open
+                        document.getElementById('mobileMenu').classList.add('hidden');
                     }
                 });
             });
@@ -1853,10 +965,6 @@
                 item.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
                 observer.observe(item);
             });
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Close modals on escape key
@@ -1882,6 +990,5 @@
             if (e.target === this) closeSuccessModal();
         });
     </script>
-
 </body>
 </html>
